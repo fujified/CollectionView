@@ -55,22 +55,45 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         
 //        currentSelectedImage = arrayTemperature[indexPath.row]
         vc.setImageName(name: currentSelectedImage)
-        
         present(vc, animated: true, completion: nil)
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if collectionView == collectionViewOne {
         return arrayTemperature.count
+        }
+        if collectionView == collectionViewTwo {
+        return arraySmile.count
+        }
+        return 0
+//        return arrayTemperature.count
       }
       
       func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        if collectionView == collectionViewOne{
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellOne", for: indexPath) as? Cell {
-            
             let imageName = arrayTemperature[indexPath.row]
             cell.setTemperatureImage(tempName: imageName)
             return cell
         }
+        }
+        if collectionView == collectionViewTwo{
+        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellTwo", for: indexPath) as? Cell {
+            let imageName = arraySmile[indexPath.row]
+            cell.setSmileImage(smileName: imageName)
+            return cell
+        }
+        }
         return UICollectionViewCell()
+        
+//        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellOne", for: indexPath) as? Cell {
+//
+//            let imageName = arrayTemperature[indexPath.row]
+//            cell.setTemperatureImage(tempName: imageName)
+//            return cell
+//        }
+//        return UICollectionViewCell()
       }
 }
 
