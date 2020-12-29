@@ -24,16 +24,36 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     "temp.red"
     ]
     
+    let arraySmile = [
+    "bad",
+    "favorite",
+    "hate",
+    "nice",
+    "notPleasant",
+    "routine"
+    ]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionViewOne.delegate = self
         collectionViewOne.dataSource = self
+        collectionViewTwo.delegate = self
+        collectionViewTwo.dataSource = self
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let vc = storyboard?.instantiateViewController(withIdentifier: "ShowImageVC") as? ShowImageVC else { return }
         var currentSelectedImage: String!
+        
+        if collectionView == collectionViewOne{
         currentSelectedImage = arrayTemperature[indexPath.row]
+        }
+        
+        if collectionView == collectionViewTwo{
+        currentSelectedImage = arraySmile[indexPath.row]
+        }
+        
+//        currentSelectedImage = arrayTemperature[indexPath.row]
         vc.setImageName(name: currentSelectedImage)
         
         present(vc, animated: true, completion: nil)
