@@ -11,10 +11,17 @@ import UIKit
 class Cell: UICollectionViewCell {
     @IBOutlet weak var temperatureImage: UIImageView!
     
+    @IBOutlet weak var smileImage: UIImageView!
+    
+    
 //    Для установки изображения в temperatureImage, создайте отдельный метод setTemperatureImage, который будет принимать строку (имя изображения), конвертировать в UIImage и присваивать значение temperatureImage.
     
     func setTemperatureImage(tempName: String) {
         temperatureImage.image = UIImage(named: tempName)
+    }
+    
+    func setSmileImage(smileName: String) {
+        smileImage.image = UIImage(named: smileName)
     }
     
 }

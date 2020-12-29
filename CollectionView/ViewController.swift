@@ -13,6 +13,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
 
     @IBOutlet weak var collectionViewOne: UICollectionView!
+    @IBOutlet weak var collectionViewTwo: UICollectionView!
     
     let arrayTemperature =  [
     "temp.green",
